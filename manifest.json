@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "图片地址获取器",
+  "version": "1.0",
+  "description": "实时获取网页中的图片并显示地址",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "downloads"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}

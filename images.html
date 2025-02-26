@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>实时图片跟踪</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .image-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .image-item {
+      border: 2px solid #ddd;
+      padding: 5px;
+      cursor: pointer;
+      position: relative;
+    }
+    .image-item.selected {
+      border-color: #007bff;
+    }
+    img {
+      max-width: 150px;
+      max-height: 150px;
+      object-fit: contain; /* 保证图片保持比例 */
+    }
+    .filter-container {
+      margin-bottom: 10px;
+    }
+    button {
+      margin: 5px;
+      padding: 5px 10px;
+    }
+    #progress {
+      margin-top: 10px;
+    }
+    #imageCount {
+      margin-top: 10px;
+    }
+    .delete-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 3px 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>实时跟踪的图片</h2>
+  <div id="imageCount">总图片数: 0，剩余图片数: 0</div> <!-- 移动到这里 -->
+  <div class="filter-container">
+    <label>最小宽度 (px): <input type="number" id="widthFilter" min="0"></label>
+    <label>最小高度 (px): <input type="number" id="heightFilter" min="0"></label>
+    <button id="filterButton">过滤</button>
+  </div>
+  <div id="imageContainer" class="image-container"></div>
+  <button id="showSelectedUrls">提取选中图片地址</button>
+  <button id="showAllUrls">提取所有图片地址</button>
+  <button id="downloadSelected">下载选中图片</button>
+  <button id="downloadAll">下载所有图片</button>
+  <div id="progress"></div>
+  <script src="images.js"></script>
+</body>
+</html>
